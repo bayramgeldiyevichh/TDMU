@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Tabs</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/bash_sah/main.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+       
+        <style>
+            
+            body {
+    background: url({% static 'images/bash_sah/background2.jpg' %});
+    background-size: 100%;
+    color: #eee;
+    font: 1em 'PT Sans', sans-serif;
+}
+        </style>
+        <!-- <li>{% if user.is_authenticated %}{% if request.user.profile %}<a href="{% url 'profile_page' %}"><img style="width:40px; height:40px; border-radius:48%; margin-bottom:1px;" src="{{request.user.profile.avatar.url}}">{{request.user.profile.name}}</a>{% else %}<a href="{% url 'profile_register' %}">Create Profile</a>{% endif %}{% endif %}</li> -->
+        {% if user.is_authenticated %}<span><a href="{% url 'logout' %}">Çykmak</a></span>{% else %}<span><a href="{% url 'sign_in' %}">Registrasiýa boluň</a>{% endif %}</span>
+        <div class="fakultet">
+            <p class="text"> <img src="{% static 'images/bash_sah/3.gif' %}" alt=""> <img class="baydak" src="{% static 'images/bash_sah/3.gif' %}" alt=""> Roman-german we gündogar dilleri fakulteti</p>
+            Biziň fakultetinde 8-sany dil we edebiýat hünärleri bar
+            Biziň esasy maksadymyz şol dilleri we şol diliň edebiýatyny kämil öwretmek we ökde
+            hünärmenleri ýetişdirmek, Ata-Watanymyza geljekde uly goşant goşjak ýaşlary
+            terbiýelemekden ybaratdyr.
+            <p>Biziň şul portalymyzda siz hem öwrenmek isleýän dilleriňiz boýunça onlaýyn sapaklary okap
+                bilersiňiz we öwrenýän diliňizi çuňňur kämillerşdirip şol dil boýunça islendik soraglaryňyza
+                biziň bilen habarlaşyp jogap tapyp bileersiňiz.
+            </p>
+            <p>Biz Daşary  ýurt dillerini diňe talyplara däl size hem öwretmegi uly  höwes bilen isleýärin
+                şonuň üçin hem Biz siziň üçin şu portaly döretdik Biz bu portalda 8-sany dil boýunça
+            okuwlary amala aşyryp her bir kişi öz öwrenmek isleýän dilini rahatlyk bilen okap biler </p>
+        </div>
+        <div class="tabbed">
+            {% for i in category %}
+            <input type="radio" name="tabs" id="tab-nav-1" checked>
+            <label for="tab-nav-1">{{i.title}}<a href="{% url 'sub_cat_percent' i.id %}">okaň</a></label>
+            <input type="radio" name="tabs" id="tab-nav-2">
+            {% endfor %}
+            <div class="tabs">
+                <div><h2> Dil öwrenmek </h2><p> Dil tutuş adamzadyň möhüm aragatnaşyk serişdesi hökmünde hyzmat etýär. </p><p> Adamzat  jemgyýetinde  adamlaryň alyp  baran işi  dilsiz  amala  aşmandyr.Her bir dil öz ösüşiniň ähli döwürlerinde umumyhalk häsiýetini saklapdyr,şonuň üçn hem bir dili öwrenmek bilen şol dilde gürleýän halky hem öwrenýärsin</p>
+                <p>Biz öz dilimiz bilen öz pikirlerimizi, duýgularymyzy,ajyny, süýjini beýan etýäris we düşünişýäris. Iki adamyň düşünişmegi, gatnaşmagy üçin bolsa ikisiniň hem haýsy hem bolsa bir dili bilmegi zerur bolýar.Hut şonuň üçin hem siz şu ýerde islendik bir dili saýlap ony kynçylyksyz öwrenip bilersiňiz</p>
+                <p>Bu döwletdäki her bir raýatyň dürli dilleri başdan hiç zat bilmezden (0-dan) öwrenip bilmekdleri we dürli soralaryna jogap tapmaklary üçin we daşary ýurt dillerde ýalňyşsyz sözläp bilmekleri üçin, dili kösenmezden we uly kynçylyk çekmezden öwrenip boljak bu we saýtyny döretdik.</p> </div>
+                <div><h2> Rus dili we edebiýaty</h2><p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem corporis!</p></div>
+                <div><h2>Nemes dili we edebiýaty</h2><p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem corporis!</p></div>
+                <div><h2>Italýan dili we edebiýaty</h2><p> Italýan dili Italiýanyň, <b> Watikanyň, San-Mariýanyň we Şweýsariýanyň </b> resmi dili</p><p>Şeýle-de <b> Horwatiýanyň we Slowenýanyň </b>ikinji dili hsaplanýar. Bu dil edil aýdylyşy ýaly ýazylýar we onuň sözleriniň ählisi çekimli sesler bilen gutorýar. 2019-njy ýylyň sanawyna görä, takmynan <u> 64800000 adam </u> bu dilde gürleýär. Bu dil öz gözbaşyyn latyn dilinden, soňra bolsa toskan diaektinden alyp gaýtýar, munuň subutnamasyny biz Danteniň, Bokkassonyň we Petrokanyň eserlerinden görüp bileris.</p></div>
+                <div><h2>Fransuz dilii we edebiýaty</h2><p>Fransuz dili <b> Fransiýanyň</b> resmi döwlet dili</p> <p> Fransuz dili BMG-nyň hem resmi iş dilleriniň biridir. Bu dil dünýäniň <b> 29 ýurdunyň</b> resmi dilidir we beýleki köp döwletlerde ikinji dil hökmünde ulanylýar. Meselem Saud Arabystanyň halky hem arap dilinden soň Fransuz dilini ulanmagy makul bilýärler. Bu dil ýeketäk titreýän<b> "r" </b> harpy aýdylmaýan dildir. <b>Pariž</b> dünýädäki iň uly fransuz dilli şäherdir. <u>120 milýon</u> adamyň ene dili bolup durýan fransuz dilini <u>Angliýanyň</u> gerbinde hem görüp bileris. </p></div>
+                <div><h2>Arap dili we edebiýaty</h2><p> Arap dili <b> Semit</b> dilleri maşgalasyna degişli dildir</p><p> <ul class="list">Arap dili</ul> 
+                    <li>Yrak, Siriýa, Liwan,</li>
+                    <li>Ysraýyl, Kuweýt, Jordaniýa,</li>
+                    <li>Saud Arabystan, Birleşen Arap Emirlikleri,</li>
+                    <li>Somani, Alžir, Tunis, Marokko</li> döwletlerine ýaýarandyr. Edebi arap dili arap döwletleriniň edebi dili hasaplanýar. Arap dilinde gürleýän adamlaryň sany <b>450</b> milýondan gowrak. Arap dilinde <u>28 harp</u> bar. Arap dili <u>BMG-nyň resmi</u> dilleriniň biri hasaplanýar. Arap harplary sözüň içinde gelende üýtgeşik ýazylýar.</p></div>
+                <div><h2>Pars dili we edebiýaty</h2><p> Pars dili Eýranyň Yslam Respublikasynyň resmi döwlet dili </p> <img class="Iran" src="{% static 'images/bash_sah/Flag_of_Iran (2).jpg' %}" alt=""> <p> Pars dilinde dünýäde <u> 78 milliondan </u>gowrak ene dilinde gürleýänler bar , ikinji dilde gürleýänleri göz öňünde tutup, <u>120-den 200 milliona </u> ýetýär.  Pars dilinde dünýäniň <u> 29 ýurdunda </u>gürleşilýär we bu meselede-de şeýlede dünýäde altynjy orny eýeledi.
+                Eýran dünýäde pars dilli iň uly ýurtdyr. Netijeler Eýran halkynyň düzümi we etnik düzümi, ilaty we pars dilleriniň statistikasy boýunça Eýranyň ilatynyň 73-75% -ini düzýär.  Bu statistika, halkyň 82-83% -iniň "parsça" gürleýändigini we 86% -iniň diňe pars dilini bilýändigini görkezýär. Tähran dünýädäki iň uly pars dilli şäherdir we Tähranlylaryň 98% -i pars dilini bilýär. 
+                <p class="tablisa"></p> <ul class="list"> Pars dili <u> <b> ikinji daşary ýurt dili </u> </b> hökmünde şu döwletlerde okadylýar
+                    <li>Germaniýa</li>
+                    <li>Serbiýa</li>
+                    <li>Polşa</li>
+                    <li>Liwan</li>
+                    <li>Ermenistan</li>
+                    <li>Gyrgyzystan</li>
+                    <li>Gazagystan</li>
+                    <li>Azerbaýjan</li>
+                    <li>Jorjiýa </li> döwletleriniň mekdeplerinde ikinji daşary ýurt dili hökmünde okadylýar
+                </ul> </p></div>
+                <div><h2>Türk dili we edebiýaty</h2><p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem corporis!</p></div>
+                <div><h2>Hytaý dili we edebiýaty</h2><p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p><p>  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem  Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem Minus saepe hic asperiores. Nesciunt, in odit sit fuga dicta dolorem corporis!</p></div>
+            </div>
+        </div>
+    </body>
+</html>

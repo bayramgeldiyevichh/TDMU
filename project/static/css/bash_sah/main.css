@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+.fakultet {
+    width: 1250px;
+    height: 300px;
+    font: 1.2em 'TimesNewRoman';
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+    color: #eee;
+    text-shadow: 0 4px 9px rgba(0,0,0,.9);
+}
+
+.Iran {
+    left: 500px;
+    top: 20px;
+}
+
+img {
+    width: 150px;
+    height: 75px;
+    display: block;
+    position: absolute;
+    top: 35px;
+}
+
+.baydak {
+    width: 150px;
+    height: 75px;
+    display: inline-block;
+    position: absolute;
+    right: 60px;
+    transform: rotateY(180deg);
+}
+
+a {
+    font: 1.2em 'TimesNewRoman';
+    display: block;
+    color: rgb(58, 194, 40);
+    line-height: 1.8em;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 3.s;
+    text-shadow: 0 4px 6px rgba(0,0,0,.9);
+}
+
+a:hover{
+    background: radial-gradient(rgb(133, 217, 228),rgb(0, 0, 0));;
+}
+
+.text {
+    background: radial-gradient(rgb(133, 217, 228),rgb(0, 0, 0));
+    font: 1.9em 'TimesNewRoman';
+    font-weight: bold;
+    text-align: center;
+    padding-top: 15px;
+    width: 500px auto;
+    height: 80px;
+    text-shadow: 0 4px 6px rgba(0,0,0,.8);
+    box-shadow: 0 4px 6px rgba(0,0,0,.8);
+}
+
+.tabbed {
+    width: 1250px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.tabbed > input {
+    display: none;
+}
+
+.tabbed > label {
+    font: 1.3em 'TimesNewRoman';
+    display: inline-block;
+    text-align: center;
+    position:static;
+    padding: 10px 38px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 3.s;
+    text-shadow: 0 4px 6px rgba(0,0,0,.9);
+}
+
+.tabbed > label:hover,
+.tabbed > input:checked + label {
+    background: #4ec6de;
+}
+
+.tabs {
+    clear: both;
+}   
+
+.tabs > div {   
+    width: 1250px;
+    position: absolute;
+    border: 2px solid #4ec6de;
+    padding: 10px 30px 40px;
+    line-height: 1.4em;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+#tab-nav-1:checked ~ .tabs > div:nth-of-type(1),
+#tab-nav-2:checked ~ .tabs > div:nth-of-type(2),
+#tab-nav-3:checked ~ .tabs > div:nth-of-type(3),
+#tab-nav-4:checked ~ .tabs > div:nth-of-type(4),
+#tab-nav-5:checked ~ .tabs > div:nth-of-type(5),
+#tab-nav-6:checked ~ .tabs > div:nth-of-type(6),
+#tab-nav-7:checked ~ .tabs > div:nth-of-type(7),
+#tab-nav-8:checked ~ .tabs > div:nth-of-type(8),
+#tab-nav-9:checked ~ .tabs > div:nth-of-type(9) {
+    opacity: 1;
+}
+
+@media screen and (max-width: 700px) {
+    .tabbed > { width: 400px;}
+    .tabbed > label { display: none;}
+    .tabs > div {
+        width: 400px;
+        border: none;
+        padding: 0;
+        opacity: 1;
+        position: relative;
+        margin-bottom: 60px;
+    }
+    .tabs > div h2 {
+        border-bottom: 2px solid #4ec6de;
+        padding-bottom: .5em;
+    }
+    .fakultet {
+        width: 400px;
+    }
+    .text {
+        font: 1.5em 'TimesNewRoman';
+        font-weight: bold;
+        padding-top: 0;
+    }
+    .baydak {
+        display: none;
+    }
+    img {
+        display: none;
+    }
+}

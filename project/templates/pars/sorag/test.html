@@ -1,0 +1,15 @@
+    {{request.user.id}}
+    <br>
+    {{sub_cat}}
+    <br>
+    {% for i in cat_user %}
+        {{i.sub_category_id.title}}
+    {% endfor %}
+    <br>
+    {%for i in cat_user_id %}
+        {{i.dogry_jogap}}
+    {% endfor %}
+
+    {% for per in total %}
+        {{per.total}}
+    {% endfor %}
